@@ -1,0 +1,15 @@
+{
+  "default": {
+    "displayName": "默认 profile",
+    "rules": [
+      {
+        "id": "high-value",
+        "name": "高价值问题审查",
+        "description": "只报告有明确证据和实际影响的问题。",
+        "enabled": true,
+        "order": 0,
+        "file": "audit.md"
+      }
+    ]
+  }
+}

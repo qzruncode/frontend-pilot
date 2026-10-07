@@ -1,0 +1,30 @@
+name: frontend-pilot
+services:
+  frontend-pilot:
+    build:
+      context: ..
+    restart: unless-stopped
+    stop_grace_period: 2m
+    env_file:
+      - ../.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: "8080"
+      WEB_ORIGIN: ${WEB_ORIGIN:-http://localhost:8080}
+    ports:
+      - "127.0.0.1:8080:8080"
+    volumes:
+      - pilot-data:/app/var
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/healthz').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 4
+      start_period: 60s
+    logging:
+      driver: json-file
+      options:
+        max-size: 20m
+        max-file: "5"
+volumes:
+  pilot-data:

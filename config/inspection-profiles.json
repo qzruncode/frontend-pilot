@@ -1,0 +1,47 @@
+{
+  "default": {
+    "displayName": "默认巡检 Profile",
+    "rules": [
+      {
+        "id": "abstraction-reuse",
+        "name": "代码抽象",
+        "description": "检查是否存在可直接复用的抽象，以及重复实现是否会造成维护分叉。",
+        "enabled": true,
+        "order": 0,
+        "file": "abstraction-reuse.md"
+      },
+      {
+        "id": "file-line-limit",
+        "name": "文件大小",
+        "description": "检查生产代码文件规模，使用实际文件内容判断是否超过 600 行。",
+        "enabled": false,
+        "order": 1,
+        "file": "file-line-limit.md"
+      },
+      {
+        "id": "performance",
+        "name": "性能",
+        "description": "只报告有代码和调用关系证据支持的实际性能风险。",
+        "enabled": true,
+        "order": 2,
+        "file": "performance.md"
+      },
+      {
+        "id": "security",
+        "name": "安全",
+        "description": "只报告有明确攻击面或敏感数据影响的安全风险。",
+        "enabled": true,
+        "order": 3,
+        "file": "security.md"
+      },
+      {
+        "id": "hidden-bug",
+        "name": "隐藏 Bug",
+        "description": "检查边界、异步竞态、状态持久化和错误处理中的实际缺陷。",
+        "enabled": true,
+        "order": 4,
+        "file": "hidden-bug.md"
+      }
+    ]
+  }
+}
